@@ -5,7 +5,7 @@ const initialParkState = {
   const parksReducer = (state=initialParkState, action) => {
     switch (action.type){
         case "SET_PARKS":
-            return{...state}
+            return{...state, parks: action.payload}
         default:
         return {...state}
     }
