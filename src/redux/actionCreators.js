@@ -12,3 +12,16 @@ export const setParks = () => {
         })  
     )}
 }
+
+export const setSelectedPark = (id) => {
+    return dispatch => {
+        fetch(API + "/dog-parks/" + id)
+        .then(res => res.json())
+        .then(park => dispatch({
+            type: "SET_SELECTED_PARK",
+            payload: park
+        })  
+    )}
+}
+
+export const parkNotSet = () => ({type: "PARK_NOT_SET"})

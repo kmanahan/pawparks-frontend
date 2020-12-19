@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import ParkCard from '../components/ParkCard'
 
 const ParkCards = (props) => {
-    console.log(props.parks)
+    // console.log(props.parks)
     return(<div className="cards">
     {props.parks.map(park => <ParkCard key={park.id} {...park} />)}
     </div>)
