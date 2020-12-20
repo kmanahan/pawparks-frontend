@@ -8,12 +8,12 @@ const emptyParkState = {
         address: ""
   }
 
-  const initialParkState = {
+  const initialState = {
     parks: [],
     selectedPark: emptyParkState
   }
   
-  const parksReducer = (state=initialParkState, action) => {
+  const parksReducer = (state=initialState, action) => {
     switch (action.type){
         case "SET_PARKS":
             return {...state, parks: action.payload}

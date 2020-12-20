@@ -1,7 +1,5 @@
 const API = "http://localhost:3000"
 
-export const like = () => ({type: "ADD_LIKE"})
-
 export const setParks = () => {
     return dispatch => {
         fetch(API + "/dog-parks")
@@ -25,3 +23,5 @@ export const setSelectedPark = (id) => {
 }
 
 export const parkNotSet = () => ({type: "PARK_NOT_SET"})
+
+
