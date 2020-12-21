@@ -30,3 +30,23 @@ export const handleReviewChange = (e) => ({
     payload: {name: e.target.name, value: e.target.value}
 })
 
+export const submitReview = (data) => {
+    return dispatch => {
+        fetch(API + "/reviews", {
+            method: 'POST',
+            headers: {
+                'Authorization': localStorage.token,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(review => dispatch({
+            type: "SET_REVIEW",
+            payload: review
+        }))
+    }
+}
+
+
+

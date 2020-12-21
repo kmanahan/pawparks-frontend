@@ -17,23 +17,23 @@ class ParkPage extends Component {
     }
 
     render(){
-        const {url, name, imageUrl, address, history, reviews} = this.props
+        const {url, name, imageUrl, address, history, reviews, id} = this.props
         return(
             <div>
                 <h1><a href={ url }>{ name }</a></h1>
                 <button onClick={history.goBack}>Return to previous screen</button>
                 <p><img src={ imageUrl } alt={ name }/></p>
                 <p>{ address }</p>
+                <div className="reviews">
+                        {reviews.map(review => <ReviewCard key={review.id} {...review}/>)}
+                        <ReviewForm park_id={id}/>
+                </div>
                 <iframe title="GOOGLE MAPS"
-                    width="600"
-                    height="450"
+                    width="500"
+                    height="350"
                     frameBorder="0" style={{border: 0}}
                     src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAOpkgotkpVeZEFuQe-PitfDFrhc9K4Y1o&q=${name + ", " + address}`} allowFullScreen>
                     </iframe>
-                    <div className="reviews">
-                        <ReviewForm />
-                        {reviews.map(review => <ReviewCard key={review.id}  {...review}/>)}
-                    </div>
             </div>
         )
     }

@@ -34,6 +34,15 @@ const emptyParkState = {
               ...state.reviewForm,
               [action.payload.name]: action.payload.value
           }}
+          case "SET_REVIEW":
+      return {
+        ...state,
+        selectedPark: {
+          ...state.selectedPark,
+          reviews: [...state.selectedPark.reviews, action.payload]
+        },
+        reviewForm: emptyReviewForm
+      }
             default:
         return {...state}
     }

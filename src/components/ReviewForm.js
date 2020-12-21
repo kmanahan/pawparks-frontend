@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { handleReviewChange  } from '../redux/actionCreators'
+import { handleReviewChange, submitReview } from '../redux/actionCreators'
 
 const ReviewForm = (props) => {
 
@@ -8,10 +8,12 @@ const ReviewForm = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault()
+    props.submitReview({...props.form, park_id: props.park_id})
   }
 
   return(
     <form onSubmit={ onSubmit }>
+        <p>Been to this park? Give a review!</p>
       <label>
         Rating: 
         <input type="number" name="rating" value={rating} onChange={props.handleReviewChange} />
@@ -22,6 +24,8 @@ const ReviewForm = (props) => {
       </label><br/>
       <br/>
       <input type="submit" value="Submit" />
+      <br/>
+      <br/>
     </form>
   )
 }
@@ -30,4 +34,4 @@ const mapStateToProps = (state) => ({
   form: state.parks.reviewForm
 })
 
-export default connect(mapStateToProps, { handleReviewChange })(ReviewForm)
+export default connect(mapStateToProps, { handleReviewChange, submitReview })(ReviewForm)

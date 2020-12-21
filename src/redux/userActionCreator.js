@@ -67,3 +67,10 @@ export const automaticLogin = (data) => {
     }
 }
 
+export const logout = () => {
+    return dispatch => {
+      localStorage.clear("token")
+      dispatch({type: "LOGOUT"})
+    }
+  }
+  

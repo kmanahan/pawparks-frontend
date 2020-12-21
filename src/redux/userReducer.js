@@ -23,7 +23,9 @@ const userReducer = (state=initialState, action) => {
         case "SET_USER":
             console.log({...state, ...action.payload.user})
             return {...state, ...action.payload.user}
-        default:
+        case "LOGOUT":
+            return {...state, username: null, id: null}
+            default:
             return {...state}
     }
 }
