@@ -20,7 +20,7 @@ class ParkPage extends Component {
         const {url, name, imageUrl, address, history, reviews, id} = this.props
         return(
             <div>
-                <h1><a href={ url }>{ name }</a></h1>
+                <h1><a href={ url } target="_blank" rel="noopener noreferrer">{ name }</a></h1>
                 <button onClick={history.goBack}>Return to previous screen</button>
                 <p><img src={ imageUrl } alt={ name }/></p>
                 <p>{ address }</p>
