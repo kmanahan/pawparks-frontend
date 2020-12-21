@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import ParkPage from './components/ParkPage'
+import ParkPage from './containers/ParkPage'
 import ParkCards from './containers/ParkCards'
 import Login from './components/Login'
 import { connect } from 'react-redux'

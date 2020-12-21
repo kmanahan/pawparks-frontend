@@ -5,12 +5,19 @@ const emptyParkState = {
         lat: "",
         long: "",
         imageUrl: "",
-        address: ""
+        address: "",
+        reviews: []
+  }
+
+  const emptyReviewForm = {
+    content: "", 
+    rating: 0
   }
 
   const initialState = {
     parks: [],
-    selectedPark: emptyParkState
+    selectedPark: emptyParkState,
+    reviewForm: emptyReviewForm
   }
   
   const parksReducer = (state=initialState, action) => {
@@ -22,7 +29,12 @@ const emptyParkState = {
             return {...state, selectedPark: action.payload}
         case "PARK_NOT_SET":
             return {...state, selectedPark: emptyParkState}
-        default:
+        case "REVIEW_CHANGE":
+          return {...state, reviewForm: {
+              ...state.reviewForm,
+              [action.payload.name]: action.payload.value
+          }}
+            default:
         return {...state}
     }
   }

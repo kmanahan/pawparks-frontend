@@ -25,3 +25,8 @@ export const setSelectedPark = (id) => {
 export const parkNotSet = () => ({type: "PARK_NOT_SET"})
 
 
+export const handleReviewChange = (e) => ({
+    type: "REVIEW_CHANGE",
+    payload: {name: e.target.name, value: e.target.value}
+})
+

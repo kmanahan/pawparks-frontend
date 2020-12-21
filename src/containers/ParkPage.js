@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { setSelectedPark, parkNotSet } from '../redux/actionCreators'
+import { setSelectedPark, parkNotSet,  } from '../redux/actionCreators'
+import ReviewCard from '../components/ReviewCard'
+import ReviewForm from '../components/ReviewForm'
 
 class ParkPage extends Component {
 
@@ -15,7 +17,7 @@ class ParkPage extends Component {
     }
 
     render(){
-        const {url, name, imageUrl, address, history} = this.props
+        const {url, name, imageUrl, address, history, reviews} = this.props
         return(
             <div>
                 <h1><a href={ url }>{ name }</a></h1>
@@ -27,8 +29,11 @@ class ParkPage extends Component {
                     height="450"
                     frameBorder="0" style={{border: 0}}
                     src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAOpkgotkpVeZEFuQe-PitfDFrhc9K4Y1o&q=${name + ", " + address}`} allowFullScreen>
-                        
                     </iframe>
+                    <div className="reviews">
+                        <ReviewForm />
+                        {reviews.map(review => <ReviewCard key={review.id}  {...review}/>)}
+                    </div>
             </div>
         )
     }
