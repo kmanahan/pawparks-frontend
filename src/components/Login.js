@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { signupToggle, handleLoginChange, sendSignup } from '../redux/userActionCreator'
+import { signupToggle, handleLoginChange, sendSignup, sendLogin } from '../redux/userActionCreator'
 
 const Login = (props) => {
-    const { signup, signupToggle, form, handleLoginChange, sendSignup } = props
+    const { signup, signupToggle, form, handleLoginChange, sendSignup, sendLogin } = props
     const { username, password, confirmPassword } = form
 
     const onSubmit = (e) => {
@@ -12,10 +12,13 @@ const Login = (props) => {
             // eslint-disable-next-line 
             if (password == confirmPassword){
             sendSignup({username: username, password: password})
+            } else {
+                alert("passwords do not match")
+            }
         } else {
-            alert("passwords do not match")
-        }
-    }}
+            sendLogin({username: username, password: password})
+        } 
+    }
     return(
       <>
         <h3>{signup ? "Sign up" : "Login"} </h3>
@@ -46,4 +49,4 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => ({signup: state.user.signup, form: state.user.loginForm})
 
-export default connect(mapStateToProps, { signupToggle, handleLoginChange, sendSignup })(Login)
+export default connect(mapStateToProps, { signupToggle, handleLoginChange, sendSignup, sendLogin })(Login)

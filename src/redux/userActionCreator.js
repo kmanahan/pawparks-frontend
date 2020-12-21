@@ -7,23 +7,63 @@ export const handleLoginChange = (e) => ({
     payload: {name: e.target.name, value: e.target.value}
 })
 
-export const sendSignup = (userData) => {
+export const sendSignup = (data) => {
     return dispatch => {
-      // localhost:3000/users
-      fetch(API + "/users", {
+    fetch(API + '/users', {
         method: 'POST', // or 'PUT'
         headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-      })
-      .then(response => response.json())
-      .then(response => {
+        'Content-Type': 'application/json',
+     },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(response => {
         localStorage.token = response.token
         dispatch({
-        type: "SET_USER",
-        payload: {user: response.user}
-      })
-    })
+            type: "SET_USER",
+            payload: {user: response.user}
+        })
+        })
     }
-  }
+}
+
+export const sendLogin = (data) => {
+    return dispatch => {
+    fetch(API + '/login', {
+        method: 'POST', // or 'PUT'
+        headers: {
+        'Content-Type': 'application/json',
+     },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(response => {
+        localStorage.token = response.token
+        dispatch({
+            type: "SET_USER",
+            payload: {user: response.user}
+        })
+        })
+    }
+}
+
+export const automaticLogin = (data) => {
+    return dispatch => {
+    fetch(API + '/automaticlogin', {
+        method: 'POST', // or 'PUT'
+        headers: {
+        'Authorization': localStorage.token,
+     },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(response => {
+        localStorage.token = response.token
+        dispatch({
+            type: "SET_USER",
+            payload: {user: response.user}
+        })
+        })
+    }
+}
+
