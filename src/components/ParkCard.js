@@ -6,8 +6,7 @@ const ParkCard = (props) => {
     return (
         <div className="card">
             <img src={imageUrl} alt={name}/><br/>
-            <div className="img-name">{props.name}</div>
-            <p><Link to={`/dog-parks/${id}`}>{name}</Link></p>
+            <Link className="img-name" to={`/dog-parks/${id}`}>{name}</Link>
         </div>
     )
 }

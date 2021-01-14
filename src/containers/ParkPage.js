@@ -20,10 +20,11 @@ class ParkPage extends Component {
         const {url, name, imageUrl, address, history, reviews, id} = this.props
         return(
             <div>
-                <h1><a href={ url } target="_blank" rel="noopener noreferrer">{ name }</a></h1>
-                <button onClick={history.goBack}>Return to previous screen</button>
-                <p><img src={ imageUrl } alt={ name }/></p>
+                <button onClick={history.goBack}>Homepage</button>
+                <br/>
+                <p><img className="page-img" src={ imageUrl } alt={ name }/></p>
                 <p>{ address }</p>
+                <a class="yelp-link" href={ url } target="_blank" rel="noopener noreferrer" role="button">Visit Yelp Page</a>
                 <div className="reviews">
                         {reviews.map(review => <ReviewCard key={review.id} {...review}/>)}
                         <ReviewForm park_id={id}/>

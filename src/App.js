@@ -11,6 +11,7 @@ import { Switch, Route } from 'react-router-dom'
 class App extends Component {
 
   componentDidMount(){
+
     localStorage.token && this.props.automaticLogin()
     this.props.setParks()
   }

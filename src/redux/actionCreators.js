@@ -48,5 +48,9 @@ export const submitReview = (data) => {
     }
 }
 
+export const handleSearchFormChange = (e) => ({
+    type: "SEARCH_FORM_CHANGE",
+    payload: {name: e.target.name, value: e.target.value}
+})
 
 

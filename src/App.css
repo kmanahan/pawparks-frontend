@@ -37,6 +37,14 @@
   }
 }
 
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 body {
   text-align: center;
   color: black;
@@ -63,11 +71,23 @@ body {
 .card img {
   width: 400px;
   height: 300px;
+  filter: brightness(85%)
 }
 
 .img-name {
   color: white;
   position: absolute;
-  bottom: 8px;
-  left: 16px;
+  text-align: left;
+  bottom: 20px;
+  left: 40px;
+  font-size: larger;
+}
+
+.page-img {
+  width: 400px;
+  height: 300px;
+}
+
+.yelp-link {
+  color: #227a92;
 }
