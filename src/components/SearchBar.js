@@ -10,9 +10,6 @@ const SearchBar = (props) => {
           enter the name of the park you're looking for:<br/>
           <input type="text" name="search" value={props.search} onChange={props.handleSearchFormChange} />
         </label>
-        <input type="submit" value="Submit" />
-        <br/>
-        <br/>
       </form>
     )
 }
