@@ -6,7 +6,7 @@ const Login = (props) => {
     const { signup, signupToggle, form, handleLoginChange, sendSignup, sendLogin } = props
     const { username, password, confirmPassword } = form
 
-    const onSubmit = (e) => {
+    const onSubmitLogin = (e) => {
         e.preventDefault()
         if (signup){
             // eslint-disable-next-line 
@@ -22,7 +22,7 @@ const Login = (props) => {
     return(
       <>
         <h3>{signup ? "Sign up" : "Login"} </h3>
-        <form onSubmit ={ onSubmit }>
+        <form onSubmit ={ onSubmitLogin }>
           <label>
             Username:
             <input type="text" name="username" value={username} onChange={handleLoginChange}/>
